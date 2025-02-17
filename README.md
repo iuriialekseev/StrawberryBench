@@ -1,10 +1,10 @@
-# StrawberryBench
+# 🍓🍓🍓 StrawberryBench 🍓🍓🍓
 
 StrawberryBench is a benchmarking tool for evaluating language models on a simple reasoning task: counting the number of `r` characters in a modified version of `strawberry`.
 
 Despite AI models excelling at complex tasks, this benchmark exposes gaps in fundamental processing, showing that there is still room for improvement even as models reach saturation in other benchmarks.
 
-## Rationale
+## 🍓 Rationale
 
 - Trivial for humans but surprisingly hard for LLMs.
 - Highlights qualitative differences between human and AI language processing.
@@ -13,7 +13,7 @@ Despite AI models excelling at complex tasks, this benchmark exposes gaps in fun
 - Easily extendable, scalable, and modifiable.
 - Simple implementation.
 
-## Methodology
+## 🍓 Methodology
 
 - Task prompt: `How many r's are in '[word]'?`.
 - Required output format: `<answer>[number]</answer>`.
@@ -23,7 +23,14 @@ Despite AI models excelling at complex tasks, this benchmark exposes gaps in fun
 - Incorrect formatting counts as incorrect answer.
 - Temperature set to 1.0
 
-## Observations
+## 🍓 Results (2025-02-17)
+
+![image](assets/heatmap_nocot.png)
+![image](assets/heatmap_cot.png)
+![image](assets/bar_chart_nocot.png)
+![image](assets/bar_chart_cot.png)
+
+## 🍓 Observations
 
 - "Reasoner" models dominate the benchmark.
 - Chain-of-thought improves performance in non-reasoner models.
@@ -39,7 +46,7 @@ Despite AI models excelling at complex tasks, this benchmark exposes gaps in fun
 - Grok 2 and Claude 3.5 Sonnet showed the biggest CoT improvements.
 - Grok 2 occasionally hallucinated absurdly long reasoning chains with a high numbers of `r`'s (200–300).
 
-## Criticism
+## 🍓 Criticism
 
 - _"This doesn't test real intelligence"_
   - It reveals how models process information, reason, and follow instructions - core aspects of intelligence.
@@ -54,12 +61,12 @@ Despite AI models excelling at complex tasks, this benchmark exposes gaps in fun
 - _"This distracts from bigger AI progress"_
   - Progress in science and engineering often comes from obsessing over what's not working.
 
-## Prerequisites
+## 🍓 Prerequisites
 
 - Python 3.x
 - OpenRouter API key
 
-## Installation
+## 🍓 Installation
 
 1. **Clone the repository:**
 
@@ -85,11 +92,11 @@ StrawberryBench uses the OpenRouter API. Set your API key as an environment vari
 export OPENROUTER_API_KEY="your_openrouter_api_key_here"
 ```
 
-## Configuration
+## 🍓 Configuration
 
 Edit the `config.py` file to customize your benchmark settings.
 
-## Usage
+## 🍓 Usage
 
 1. **Run the benchmark:**
 
@@ -104,7 +111,7 @@ This script generates prompts, queries the models asynchronously, aggregates the
 python plot.py
 ```
 
-## Contributing
+## 🍓 Contributing
 
 Contributions, bug reports, and feature requests are welcome!
 
