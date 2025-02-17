@@ -1,27 +1,27 @@
 # 🍓🍓🍓 StrawberryBench 🍓🍓🍓
 
-StrawberryBench is a benchmarking tool for evaluating language models on a simple reasoning task: counting the number of `r` characters in a modified version of `strawberry`.
+StrawberryBench evaluates language models on a basic reasoning task: counting the `r` characters in a word `strawberry`.
 
-Despite AI models excelling at complex tasks, this benchmark exposes gaps in fundamental processing, showing that there is still room for improvement even as models reach saturation in other benchmarks.
+While AI models excel at complex tasks, this benchmark highlights gaps in fundamental processing, revealing areas for improvement even as models approach saturation in other benchmarks.
 
 ## 🍓 Rationale
 
-- Trivial for humans but surprisingly hard for LLMs.
-- Highlights qualitative differences between human and AI language processing.
-- Touches on key concepts: tokenization, attention, syntax vs. semantics, chain-of-thought, etc.
+- Easy for humans but surprisingly challenging for LLMs.
+- Reveals qualitative differences between human and AI language processing.
+- Explores key concepts: tokenization, attention, syntax vs. semantics, chain-of-thought, etc.
 - Binary evaluation: answers are either correct or incorrect.
-- Easily extendable, scalable, and modifiable.
-- Simple implementation.
+- Designed to be extendable, scalable, and adaptable.
+- Simple to implement.
 
 ## 🍓 Methodology
 
 - Task prompt: `How many r's are in '[word]'?`.
-- Required output format: `<answer>[number]</answer>`.
+- Output format: `<answer>[number]</answer>`.
 - Optional CoT prompt: `Think step by step`.
-- Additional `r` characters are inserted to increase difficulty.
-- Each variant is queried 20 times for statistical significance.
-- Incorrect formatting counts as incorrect answer.
-- Temperature set to 1.0
+- Extra `r` characters added to increase difficulty.
+- Each variant tested `20` times for statistical significance.
+- Formatting errors count as incorrect answers.
+- Temperature fixed at `1.0`
 
 ## 🍓 Results (2025-02-17)
 
@@ -32,32 +32,32 @@ Despite AI models excelling at complex tasks, this benchmark exposes gaps in fun
 
 ## 🍓 Observations
 
-- "Reasoner" models dominate the benchmark.
-- Chain-of-thought improves performance in non-reasoner models.
-- Most models (GPT-4o+, Gemini 2.0 Flash, Claude, Mistral, Llama) used CoT without explicit instructions.
-- Models giving direct answers without CoT performed worst (Gemini 1.5 Flash/Pro, Grok 2, Qwen 2.5).
-- StrawberryBench results correlate with other public benchmark results.
-
+- Reasoning models dominate the benchmark.
+- Chain-of-thought boosts performance in non-reasoning models.
+- Many models applied CoT without explicit prompting (GPT-4o+, Gemini 2.0 Flash, Claude, Mistral, Llama).
+- Models that skipped CoT and gave direct answers performed the worst (Gemini 1.5 Flash/Pro, Grok 2, Qwen 2.5).
+- StrawberryBench results align with other public benchmarks.
+  
 ---
 
-- OpenAI's o1 leads by a large margin.
-- DeepSeek results are impressive, given its open-source nature and price.
+- OpenAI's o1 leads by a wide margin.
+- DeepSeek's r1 results are impressive given its open-source nature and cost.
 - Google made major gains from Gemini 1.5 Flash to 2.0 Flash.
-- Grok 2 and Claude 3.5 Sonnet showed the biggest CoT improvements.
-- Grok 2 occasionally hallucinated absurdly long reasoning chains with a high numbers of `r`'s (200–300).
+- Grok 2 and Claude 3.5 Sonnet saw the biggest CoT improvements.
+- Grok 2 occasionally hallucinated absurdly long reasoning chains with 200–300 `r`'s.
 
 ## 🍓 Criticism
 
 - _"This doesn't test real intelligence"_
-  - It reveals how models process information, reason, and follow instructions - core aspects of intelligence.
+  - It evaluates how models process information, reason, and follow instructions - key aspects of intelligence.
 - _"Just prompt better or use tools"_
-  - A strong model should generalize well and get it right without hand-holding.
+  - A strong model should generalize well and perform without excessive hand-holding.
 - _"This is just a tokenization issue"_
   - Large-scale character-level models are impractical.
 - _"Strict formatting rules are unfair"_
-    - A model that can't follow formatting risks failure elsewhere.
+    - A model that can't follow formatting risks failure in other tasks.
 - _"Every model fails, so why test?"_
-  - New models are improving. Benchmarks track progress and validate reasoning improvements.
+  - New models are improving, and benchmarks track progress in reasoning capabilities.
 - _"This distracts from bigger AI progress"_
   - Progress in science and engineering often comes from obsessing over what's not working.
 

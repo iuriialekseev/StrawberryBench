@@ -1,16 +1,14 @@
 import re
 
-from config import COT
-
 def generate_word(additional_rs: int) -> str:
     base_word = "strawberry"
     new_r_sequence = "r" * (2 + additional_rs)
     return base_word[:7] + new_r_sequence + base_word[9:]
 
 
-def generate_prompt(word: str) -> str:
+def generate_prompt(word: str, cot: bool) -> str:
     prompt = f"How many r's are in '{word}'?\n"
-    if COT:
+    if cot:
         prompt += "Think step by step.\n"
     prompt += "Please provide the final answer in the format: <answer>[number]</answer>"
     return prompt

@@ -3,5 +3,7 @@ seaborn
 pandas
 openai
 openrouter
+google-cloud-aiplatform
 retry
 tqdm
+aiolimiter
