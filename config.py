@@ -56,8 +56,8 @@ MODELS = [
     # { "name": "google/gemini-1.5-pro-001", "provider": "google_vertex", "cot": False, "rate_limit": 30 },
     # { "name": "google/gemini-1.5-pro-001", "provider": "google_vertex", "cot": True, "rate_limit": 30 },
 
-    { "name": "google/gemini-2.0-flash-001", "provider": "google_vertex", "cot": False, "rate_limit": 500 },
-    { "name": "google/gemini-2.0-flash-001", "provider": "google_vertex", "cot": True, "rate_limit": 500 },
+    # { "name": "google/gemini-2.0-flash-001", "provider": "google_vertex", "cot": False, "rate_limit": 500 },
+    # { "name": "google/gemini-2.0-flash-001", "provider": "google_vertex", "cot": True, "rate_limit": 500 },
 
     # { "name": "google/gemini-2.0-flash-thinking-exp-01-21", "provider": "google_vertex", "cot": False, "rate_limit": 5 },
     # { "name": "google/gemini-2.0-flash-thinking-exp-01-21", "provider": "google_vertex", "cot": True, "rate_limit": 5 },
@@ -71,6 +71,6 @@ MODELS = [
 
 # The additional characters to insert in the word
 ADDITIONAL_RS = range(0, 10)
-ITERATIONS = 20
 
+ITERATIONS = 20
 TEMPERATURE = 1.0

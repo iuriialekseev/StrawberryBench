@@ -1,3 +1,4 @@
+import os
 import vertexai
 from vertexai.generative_models import GenerativeModel, GenerationConfig
 from retry import retry
@@ -9,8 +10,8 @@ class GoogleVertexClient:
             model = model.replace("google/", "")
 
         vertexai.init(
-            project='test-whisper-405815',
-            location='us-central1',
+            project=os.getenv("VERTEX_PROJECT_ID"),
+            location=os.getenv("VERTEX_LOCATION"),
         )
 
         self.rate_limiter = rate_limiter

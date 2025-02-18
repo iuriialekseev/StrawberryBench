@@ -33,7 +33,6 @@ def plot_heatmap(pivot_df, title, save_path=None, dpi=300):
 
 
 def plot_bar_chart(df, title, save_path=None, dpi=300):
-    # Define provider colors
     provider_colors = {
         'openai': '#74AA9C',
         'anthropic': '#D4C5B9',
@@ -45,26 +44,22 @@ def plot_bar_chart(df, title, save_path=None, dpi=300):
         'deepseek': '#E377C2',
     }
 
-    # Group by model to calculate the average accuracy
     grouped = df.groupby("model").agg(
         average_accuracy=("accuracy", "mean"),
         provider=("provider", "first")
     ).reset_index()
 
-    # Select the top 20 models by average accuracy
-    top_models = grouped.sort_values("average_accuracy", ascending=False).head(20)[::-1]
+    top_models = grouped.sort_values("average_accuracy", ascending=False)[::-1]
     colors = [provider_colors.get(provider.lower(), "#333333") for provider in top_models["provider"]]
 
     plt.figure(figsize=(12, 7))
     ax = plt.gca()
     bars = ax.barh(top_models["model"], top_models["average_accuracy"], color=colors)
 
-    # Add accuracy labels on each bar
     for bar in bars:
         width = bar.get_width()
         ax.text(width, bar.get_y() + bar.get_height() / 2, f' {width:.0f}%', va='center', ha='left', fontsize=10)
 
-    # Create legend
     legend_handles = [
         mpatches.Patch(color=provider_colors.get(provider.lower(), "#333333"), label=provider)
         for provider in top_models["provider"].unique()
@@ -85,15 +80,12 @@ def plot_bar_chart(df, title, save_path=None, dpi=300):
 def plot_all(json_filename, save_plots=False, dpi=300):
     df = pd.read_json(json_filename)
 
-    # Split provider and model from the 'model' field
     df["provider"] = df["model"].apply(lambda x: x.split("/")[0])
     df["model"] = df["model"].apply(lambda x: x.split("/")[-1])
 
-    # Split data based on whether chain-of-thought (CoT) is used
     df_cot = df[df["cot"]]
     df_nocot = df[~df["cot"]]
 
-    # Create a pivot table for heatmaps
     def create_pivot(sub_df):
         pivot = sub_df.pivot(index="model", columns="additional_rs", values="accuracy")
         pivot["average"] = pivot.mean(axis=1)
@@ -101,7 +93,6 @@ def plot_all(json_filename, save_plots=False, dpi=300):
 
     sns.set_theme(style="white")
 
-    # Plot for CoT records if available
     if not df_cot.empty:
         pivot_cot = create_pivot(df_cot)
         heatmap_save_path = "assets/heatmap_cot.png" if save_plots else None
@@ -111,7 +102,6 @@ def plot_all(json_filename, save_plots=False, dpi=300):
     else:
         print("No records with CoT. Skipping CoT plots.")
 
-    # Plot for non-CoT records if available
     if not df_nocot.empty:
         pivot_nocot = create_pivot(df_nocot)
         heatmap_save_path = "assets/heatmap_nocot.png" if save_plots else None
