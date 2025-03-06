@@ -45,6 +45,7 @@ MODELS = [
     # { "name": "openai/o1-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini-high", "client": "openai", "type": "reasoning" },
+    # { "name": "qwen/qwq-32b", "client": "openrouter", "type": "reasoning", "settings": {"rate_limit": 30} },
 ]
 
 # The additional characters to insert in the word

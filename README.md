@@ -31,7 +31,7 @@ It reveals weaknesses in reasoning capabilities, highlighting areas for improvem
 - Models providing direct answers without reasoning tend to perform worse.
 - StrawberryBench results strongly correlate with other public benchmarks, a surprising and notable finding.
 
-## 🍓 Results (2025-02-28)
+## 🍓 Results (2025-03-06)
 
 ### Leaderboard
 
