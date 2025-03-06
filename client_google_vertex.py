@@ -1,7 +1,7 @@
 import os
 import vertexai
 from vertexai.generative_models import GenerativeModel, GenerationConfig
-from retry import retry
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from config import TEMPERATURE
 
 
@@ -23,7 +23,11 @@ class GoogleVertexClient:
             ),
         )
 
-    @retry(tries=5, delay=10, exceptions=(Exception, TypeError))
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=2, min=2),
+        retry=retry_if_exception_type((Exception, TypeError))
+    )
     async def query_model(self, prompt: str) -> str:
         await self.rate_limiter.acquire()
         response = await self.vertex_model.generate_content_async(prompt)

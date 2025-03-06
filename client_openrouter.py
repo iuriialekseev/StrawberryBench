@@ -1,9 +1,9 @@
-import os
-import json
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 import aiohttp
-from retry import retry
+from aiohttp import ClientError
+import json
+import os
 from config import TEMPERATURE
-
 
 class OpenRouterClient:
     def __init__(self, model, rate_limiter):
@@ -16,7 +16,11 @@ class OpenRouterClient:
             "Content-Type": "application/json",
         }
 
-    @retry(tries=5, delay=10, exceptions=(Exception, TypeError))
+    @retry(
+        stop=stop_after_attempt(5),
+        wait=wait_exponential(multiplier=2, min=2),
+        retry=retry_if_exception_type((ClientError, KeyError))
+    )
     async def query_model(self, prompt: str) -> str:
         await self.rate_limiter.acquire()
 
@@ -33,5 +37,5 @@ class OpenRouterClient:
             ) as response:
                 response.raise_for_status()
                 result = await response.json()
-                # print(result)
-        return result["choices"][0]["message"]["content"] or ""
+                print(result)
+                return result["choices"][0]["message"]["content"] or ""

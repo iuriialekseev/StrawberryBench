@@ -6,7 +6,7 @@ matplotlib
 openai
 openrouter
 pandas
-retry
+tenacity
 ruff
 seaborn
 tqdm
