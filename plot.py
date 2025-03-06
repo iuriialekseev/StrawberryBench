@@ -175,9 +175,9 @@ def plot_all(json_filename, save_plots=False):
         leaderboard = "assets/leaderboard.png" if save_plots else None
         plot_bar_chart(
             df,
-            "StrawberryBench - Leaderboard - Top 25",
+            "StrawberryBench - Leaderboard - Top 20",
             save_path=leaderboard,
-            limit=25,
+            limit=20,
             add_cot_label=True,
         )
     else:
