@@ -2,6 +2,7 @@ MODELS = [
     # { "name": "anthropic/claude-3.5-haiku", "client": "openrouter", "type": "nocot" },
     # { "name": "anthropic/claude-3.5-sonnet", "client": "openrouter", "type": "nocot" },
     # { "name": "anthropic/claude-3.7-sonnet", "client": "openrouter", "type": "nocot", "settings": { "rate_limit": 25 } },
+    # { "name": "deepseek/deepseek-chat-v3-0324", "client": "openrouter", "type": "nocot" },
     # { "name": "google/gemini-1.5-flash-002", "client": "google_vertex", "type": "nocot" },
     # { "name": "google/gemini-1.5-pro-001", "client": "google_vertex", "type": "nocot" },
     # { "name": "google/gemini-2.0-flash-001", "client": "google_vertex", "type": "nocot" },
@@ -21,9 +22,11 @@ MODELS = [
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "nocot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "nocot" },
 
+
     # { "name": "anthropic/claude-3.5-haiku", "client": "openrouter", "type": "cot" },
     # { "name": "anthropic/claude-3.5-sonnet", "client": "openrouter", "type": "cot" },
     # { "name": "anthropic/claude-3.7-sonnet", "client": "openrouter", "type": "cot", "settings": { "rate_limit": 25 } },
+    # { "name": "deepseek/deepseek-chat-v3-0324", "client": "openrouter", "type": "cot" },
     # { "name": "google/gemini-1.5-flash-002", "client": "google_vertex", "type": "cot" },
     # { "name": "google/gemini-1.5-pro-001", "client": "google_vertex", "type": "cot" },
     # { "name": "google/gemini-2.0-flash-001", "client": "google_vertex", "type": "cot" },
