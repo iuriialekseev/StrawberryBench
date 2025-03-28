@@ -1,6 +1,11 @@
 import os
 from openai import AsyncOpenAI
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 from config import TEMPERATURE
 
 
@@ -16,7 +21,7 @@ class OpenAIClient:
     @retry(
         stop=stop_after_attempt(5),
         wait=wait_exponential(multiplier=2, min=2),
-        retry=retry_if_exception_type((Exception, TypeError))
+        retry=retry_if_exception_type((Exception, TypeError)),
     )
     async def query_model(self, prompt: str) -> str:
         await self.rate_limiter.acquire()

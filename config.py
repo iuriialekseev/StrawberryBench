@@ -22,7 +22,6 @@ MODELS = [
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "nocot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "nocot" },
 
-
     # { "name": "anthropic/claude-3.5-haiku", "client": "openrouter", "type": "cot" },
     # { "name": "anthropic/claude-3.5-sonnet", "client": "openrouter", "type": "cot" },
     # { "name": "anthropic/claude-3.7-sonnet", "client": "openrouter", "type": "cot", "settings": { "rate_limit": 25 } },
@@ -50,6 +49,7 @@ MODELS = [
     # { "name": "deepseek/deepseek-r1", "client": "openrouter", "type": "reasoning" },
     # { "name": "deepseek/deepseek-r1-distill-llama-70b", "client": "openrouter", "type": "reasoning" },
     # { "name": "google/gemini-2.0-flash-thinking-exp-01-21", "client": "google_vertex", "type": "reasoning", "settings": { "rate_limit": 10 } },
+    # { "name": "google/gemini-2.5-pro-exp-03-25", "client": "google_studio", "type": "reasoning", "settings": {"rate_limit": 4} },
     # { "name": "openai/o1", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o1-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini", "client": "openai", "type": "reasoning" },

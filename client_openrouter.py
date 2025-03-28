@@ -1,9 +1,15 @@
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    retry_if_exception_type,
+)
 import aiohttp
 from aiohttp import ClientError
 import json
 import os
 from config import TEMPERATURE
+
 
 class OpenRouterClient:
     def __init__(self, model, rate_limiter):
@@ -19,7 +25,7 @@ class OpenRouterClient:
     @retry(
         stop=stop_after_attempt(5),
         wait=wait_exponential(multiplier=2, min=2),
-        retry=retry_if_exception_type((ClientError, KeyError))
+        retry=retry_if_exception_type((ClientError, KeyError)),
     )
     async def query_model(self, prompt: str) -> str:
         await self.rate_limiter.acquire()

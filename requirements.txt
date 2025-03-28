@@ -2,6 +2,7 @@ aiolimiter
 aiohttp
 anthropic
 google-cloud-aiplatform
+google-genai
 matplotlib
 openai
 openrouter

@@ -146,7 +146,9 @@ def plot_all(json_filename, save_plots=False):
         heatmap_save_path = "assets/heatmap_cot.png" if save_plots else None
         bar_chart_save_path = "assets/bar_chart_cot.png" if save_plots else None
 
-        plot_heatmap(pivot_cot, "StrawberryBench - Chain of Thought", save_path=heatmap_save_path)
+        plot_heatmap(
+            pivot_cot, "StrawberryBench - Chain of Thought", save_path=heatmap_save_path
+        )
         plot_bar_chart(
             df_cot, "StrawberryBench - Chain of Thought", save_path=bar_chart_save_path
         )

@@ -3,6 +3,7 @@ from client_anthropic import AnthropicClient
 from client_openai import OpenAIClient
 from client_openrouter import OpenRouterClient
 from client_google_vertex import GoogleVertexClient
+from client_google_studio import GoogleStudioClient
 
 cache = {}
 
@@ -24,6 +25,8 @@ def get_client(model: dict):
         client = OpenAIClient(name, limiter)
     elif client == "google_vertex":
         client = GoogleVertexClient(name, limiter)
+    elif client == "google_studio":
+        client = GoogleStudioClient(name, limiter)
     elif client == "anthropic":
         client = AnthropicClient(name, limiter)
     else:
