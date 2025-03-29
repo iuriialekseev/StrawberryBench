@@ -49,7 +49,7 @@ MODELS = [
     # { "name": "deepseek/deepseek-r1", "client": "openrouter", "type": "reasoning" },
     # { "name": "deepseek/deepseek-r1-distill-llama-70b", "client": "openrouter", "type": "reasoning" },
     # { "name": "google/gemini-2.0-flash-thinking-exp-01-21", "client": "google_vertex", "type": "reasoning", "settings": { "rate_limit": 10 } },
-    # { "name": "google/gemini-2.5-pro-exp-03-25", "client": "google_studio", "type": "reasoning", "settings": {"rate_limit": 4} },
+    # { "name": "google/gemini-2.5-pro-exp-03-25", "client": "google_vertex", "type": "reasoning", "settings": {"rate_limit": 15} },
     # { "name": "openai/o1", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o1-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini", "client": "openai", "type": "reasoning" },
