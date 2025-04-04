@@ -19,6 +19,7 @@ MODELS = [
     # { "name": "openai/gpt-4.5-preview", "client": "openai", "type": "nocot" },
     # { "name": "openai/gpt-4o", "client": "openai", "type": "nocot" },
     # { "name": "openai/gpt-4o-mini", "client": "openai", "type": "nocot" },
+    # { "name": "openrouter/quasar-alpha", "client": "openrouter", "type": "nocot" },
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "nocot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "nocot" },
 
@@ -42,6 +43,7 @@ MODELS = [
     # { "name": "openai/gpt-4.5-preview", "client": "openai", "type": "cot" },
     # { "name": "openai/gpt-4o", "client": "openai", "type": "cot" },
     # { "name": "openai/gpt-4o-mini", "client": "openai", "type": "cot" },
+    # { "name": "openrouter/quasar-alpha", "client": "openrouter", "type": "cot" },
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "cot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "cot" },
 
