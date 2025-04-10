@@ -1,0 +1,12 @@
+line-length = 140
+target-version = "py312"
+
+[lint]
+select = [
+  'E', # PEP8 errors
+  'F', # Pyflakes
+  'I', # isort
+]
+ignore = [
+  'E501', # line too long
+]

@@ -1,11 +1,13 @@
 import os
+
 from anthropic import AsyncAnthropic, InternalServerError
 from tenacity import (
     retry,
+    retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type,
 )
+
 from config import TEMPERATURE
 
 
@@ -35,11 +37,7 @@ class AnthropicClient:
 
         # print(response)
         for block in response.content:
-            if (
-                hasattr(block, "type")
-                and block.type == "text"
-                and hasattr(block, "text")
-            ):
+            if hasattr(block, "type") and block.type == "text" and hasattr(block, "text"):
                 # print(block.text)
                 return block.text
 

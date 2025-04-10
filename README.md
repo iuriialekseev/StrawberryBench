@@ -35,22 +35,22 @@ It reveals weaknesses in reasoning capabilities, highlighting areas for improvem
 
 ### Leaderboard
 
-![image](assets/leaderboard.png)
+![image](results/leaderboard.png)
 
 ### Reasoning Models
 
-![image](assets/bar_chart_reasoning.png)
-![image](assets/heatmap_reasoning.png)
+![image](results/bar_chart_reasoning.png)
+![image](results/heatmap_reasoning.png)
 
 ### Chain of Thought
 
-![image](assets/bar_chart_cot.png)
-![image](assets/heatmap_cot.png)
+![image](results/bar_chart_cot.png)
+![image](results/heatmap_cot.png)
 
 ### Baseline
 
-![image](assets/bar_chart_nocot.png)
-![image](assets/heatmap_nocot.png)
+![image](results/bar_chart_nocot.png)
+![image](results/heatmap_nocot.png)
 
 ## 🍓 Prerequisites
 

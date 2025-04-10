@@ -1,13 +1,15 @@
-from tenacity import (
-    retry,
-    stop_after_attempt,
-    wait_exponential,
-    retry_if_exception_type,
-)
-import aiohttp
-from aiohttp import ClientError
 import json
 import os
+
+import aiohttp
+from aiohttp import ClientError
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
+
 from config import TEMPERATURE
 
 
@@ -38,9 +40,7 @@ class OpenRouterClient:
         }
 
         async with aiohttp.ClientSession() as session:
-            async with session.post(
-                self.base_url, headers=self.headers, data=json.dumps(payload)
-            ) as response:
+            async with session.post(self.base_url, headers=self.headers, data=json.dumps(payload)) as response:
                 response.raise_for_status()
                 result = await response.json()
                 print(result)

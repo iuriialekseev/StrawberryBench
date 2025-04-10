@@ -1,7 +1,7 @@
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
 
 def plot_heatmap(pivot_df, title, save_path=None):
@@ -45,9 +45,7 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
 
     if add_cot_label:
         plot_df["display_model"] = plot_df.apply(
-            lambda row: f"{row['model']} (cot)"
-            if row["type"] == "cot"
-            else row["model"],
+            lambda row: f"{row['model']} (cot)" if row["type"] == "cot" else row["model"],
             axis=1,
         )
     else:
@@ -65,10 +63,7 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
 
     top_models = top_models[::-1]
 
-    colors = [
-        provider_colors.get(provider.lower(), "#333333")
-        for provider in top_models["provider"]
-    ]
+    colors = [provider_colors.get(provider.lower(), "#333333") for provider in top_models["provider"]]
 
     plt.figure(figsize=(12, 7))
     ax = plt.gca()
@@ -129,36 +124,28 @@ def plot_all(json_filename, save_plots=False):
 
     if not df_nocot.empty:
         pivot_nocot = create_pivot(df_nocot)
-        heatmap_save_path = "assets/heatmap_nocot.png" if save_plots else None
-        bar_chart_save_path = "assets/bar_chart_nocot.png" if save_plots else None
+        heatmap_save_path = "results/heatmap_nocot.png" if save_plots else None
+        bar_chart_save_path = "results/bar_chart_nocot.png" if save_plots else None
 
-        plot_heatmap(
-            pivot_nocot, "StrawberryBench - Baseline", save_path=heatmap_save_path
-        )
-        plot_bar_chart(
-            df_nocot, "StrawberryBench - Baseline", save_path=bar_chart_save_path
-        )
+        plot_heatmap(pivot_nocot, "StrawberryBench - Baseline", save_path=heatmap_save_path)
+        plot_bar_chart(df_nocot, "StrawberryBench - Baseline", save_path=bar_chart_save_path)
     else:
         print("No records with 'nocot' type. Skipping nocot plots.")
 
     if not df_cot.empty:
         pivot_cot = create_pivot(df_cot)
-        heatmap_save_path = "assets/heatmap_cot.png" if save_plots else None
-        bar_chart_save_path = "assets/bar_chart_cot.png" if save_plots else None
+        heatmap_save_path = "results/heatmap_cot.png" if save_plots else None
+        bar_chart_save_path = "results/bar_chart_cot.png" if save_plots else None
 
-        plot_heatmap(
-            pivot_cot, "StrawberryBench - Chain of Thought", save_path=heatmap_save_path
-        )
-        plot_bar_chart(
-            df_cot, "StrawberryBench - Chain of Thought", save_path=bar_chart_save_path
-        )
+        plot_heatmap(pivot_cot, "StrawberryBench - Chain of Thought", save_path=heatmap_save_path)
+        plot_bar_chart(df_cot, "StrawberryBench - Chain of Thought", save_path=bar_chart_save_path)
     else:
         print("No records with 'cot' type. Skipping CoT plots.")
 
     if not df_reasoning.empty:
         pivot_reasoning = create_pivot(df_reasoning)
-        heatmap_save_path = "assets/heatmap_reasoning.png" if save_plots else None
-        bar_chart_save_path = "assets/bar_chart_reasoning.png" if save_plots else None
+        heatmap_save_path = "results/heatmap_reasoning.png" if save_plots else None
+        bar_chart_save_path = "results/bar_chart_reasoning.png" if save_plots else None
 
         plot_heatmap(
             pivot_reasoning,
@@ -174,7 +161,7 @@ def plot_all(json_filename, save_plots=False):
         print("No records with 'reasoning' type. Skipping reasoning plots.")
 
     if not df.empty:
-        leaderboard = "assets/leaderboard.png" if save_plots else None
+        leaderboard = "results/leaderboard.png" if save_plots else None
         plot_bar_chart(
             df,
             "StrawberryBench - Leaderboard - Top 20",

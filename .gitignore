@@ -1,4 +1,5 @@
-venv
 __pycache__
 .ruff_cachie
 .DS_Store
+.ruff_cache
+.venv

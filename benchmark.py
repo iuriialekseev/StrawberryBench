@@ -1,14 +1,14 @@
 import asyncio
-from config import MODELS, ADDITIONAL_RS, ITERATIONS
-from utils import generate_word, generate_prompt, evaluate_response
-from client import get_client
-from tqdm import tqdm
 import json
 
+from tqdm import tqdm
 
-async def run_single_iteration(
-    model_info: dict, additional_rs: int, word: str, pbar
-) -> tuple:
+from client import get_client
+from config import ADDITIONAL_RS, ITERATIONS, MODELS
+from utils import evaluate_response, generate_prompt, generate_word
+
+
+async def run_single_iteration(model_info: dict, additional_rs: int, word: str, pbar) -> tuple:
     prompt = generate_prompt(word, model_info["type"])
     client = get_client(model_info)
     response = await client.query_model(prompt)
@@ -26,11 +26,7 @@ async def main():
             for additional_rs in ADDITIONAL_RS:
                 modified_word = generate_word(additional_rs)
                 for _ in range(ITERATIONS):
-                    tasks.append(
-                        run_single_iteration(
-                            model_info, additional_rs, modified_word, pbar
-                        )
-                    )
+                    tasks.append(run_single_iteration(model_info, additional_rs, modified_word, pbar))
 
         results = await asyncio.gather(*tasks)
 
@@ -51,9 +47,7 @@ async def main():
             }
         )
 
-    formatted_json = ",\n".join(
-        json.dumps(result, separators=(", ", ": ")) for result in final_results
-    )
+    formatted_json = ",\n".join(json.dumps(result, separators=(", ", ": ")) for result in final_results)
     print(formatted_json)
 
 

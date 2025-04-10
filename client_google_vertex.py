@@ -1,12 +1,14 @@
 import os
+
 import vertexai
-from vertexai.generative_models import GenerativeModel, GenerationConfig
 from tenacity import (
     retry,
+    retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type,
 )
+from vertexai.generative_models import GenerationConfig, GenerativeModel
+
 from config import TEMPERATURE
 
 
