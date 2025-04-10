@@ -24,7 +24,8 @@ MODELS = [
     # { "name": "openrouter/quasar-alpha", "client": "openrouter", "type": "nocot" },
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "nocot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "nocot" },
-    # {"name": "x-ai/grok-3-beta", "client": "openrouter", "type": "nocot"},
+    # { "name": "x-ai/grok-3-beta", "client": "openrouter", "type": "nocot" },
+    # { "name": "openrouter/optimus-alpha", "client": "openrouter", "type": "nocot" },
 
     # { "name": "anthropic/claude-3.5-haiku", "client": "openrouter", "type": "cot" },
     # { "name": "anthropic/claude-3.5-sonnet", "client": "openrouter", "type": "cot" },
@@ -51,7 +52,8 @@ MODELS = [
     # { "name": "openrouter/quasar-alpha", "client": "openrouter", "type": "cot" },
     # { "name": "qwen/qwen-max", "client": "openrouter", "type": "cot", "settings": { "rate_limit": 30 } },
     # { "name": "x-ai/grok-2-1212", "client": "openrouter", "type": "cot" },
-    # {"name": "x-ai/grok-3-beta", "client": "openrouter", "type": "cot"},
+    # { "name": "x-ai/grok-3-beta", "client": "openrouter", "type": "cot" },
+    # { "name": "openrouter/optimus-alpha", "client": "openrouter", "type": "cot" },
 
     # { "name": "anthropic/claude-3-7-sonnet-20250219", "client": "anthropic", "type": "reasoning", "settings": {"rate_limit": 4} },
     # { "name": "deepseek/deepseek-r1", "client": "openrouter", "type": "reasoning" },
@@ -63,7 +65,7 @@ MODELS = [
     # { "name": "openai/o3-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini-high", "client": "openai", "type": "reasoning" },
     # { "name": "qwen/qwq-32b", "client": "openrouter", "type": "reasoning", "settings": {"rate_limit": 30} },
-    # {"name": "x-ai/grok-3-mini-beta", "client": "openrouter", "type": "reasoning"},
+    # { "name": "x-ai/grok-3-mini-beta", "client": "openrouter", "type": "reasoning" },
 ]
 
 # The additional characters to insert in the word
