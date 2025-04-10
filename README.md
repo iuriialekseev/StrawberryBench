@@ -54,7 +54,8 @@ It reveals weaknesses in reasoning capabilities, highlighting areas for improvem
 
 ## 🍓 Prerequisites
 
-- Python 3.x
+- Python 3.12
+- uv package manager
 
 ## 🍓 Installation
 
@@ -68,9 +69,7 @@ cd StrawberryBench
 2. **Install dependencies:**
 
 ```bash
-python -m venv venv
-source ./venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
 
 3. **Set your API keys:**
@@ -88,8 +87,8 @@ export VERTEX_LOCATION="vertex_location"
 ## 🍓 Linting and formatting
 
 ```bash
-ruff format .
-ruff check . --fix
+uv run ruff format .
+uv run ruff check . --fix
 ```
 
 ## 🍓 Configuration
@@ -101,14 +100,14 @@ Edit the `config.py` file to customize your benchmark settings.
 1. **Run the benchmark:**
 
 ```bash
-python benchmark.py
+uv run python benchmark.py
 ```
 This script generates prompts, queries the models, aggregates and outputs the results.
 
 2. **Generate plots:**
 
 ```bash
-python plot.py
+uv run python plot.py
 ```
 
 ## 🍓 Contributing

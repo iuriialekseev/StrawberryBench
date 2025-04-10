@@ -1,6 +1,5 @@
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
-
 import pandas as pd
 import seaborn as sns
 
@@ -52,11 +51,7 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
     else:
         plot_df["display_model"] = plot_df["model"]
 
-    grouped = (
-        plot_df.groupby("display_model")
-        .agg(average_accuracy=("accuracy", "mean"), provider=("provider", "first"))
-        .reset_index()
-    )
+    grouped = plot_df.groupby("display_model").agg(average_accuracy=("accuracy", "mean"), provider=("provider", "first")).reset_index()
 
     top_models = grouped.sort_values("average_accuracy", ascending=False)
     if limit:
@@ -175,4 +170,4 @@ def plot_all(json_filename, save_plots=False):
 
 
 if __name__ == "__main__":
-    plot_all("results.json", save_plots=True)
+    plot_all("results/results.json", save_plots=True)

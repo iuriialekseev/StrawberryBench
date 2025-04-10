@@ -9,7 +9,7 @@ from tenacity import (
 )
 from vertexai.generative_models import GenerationConfig, GenerativeModel
 
-from config import TEMPERATURE
+from src.config import TEMPERATURE
 
 
 class GoogleVertexClient:

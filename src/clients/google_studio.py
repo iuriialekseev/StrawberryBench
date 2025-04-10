@@ -9,7 +9,7 @@ from tenacity import (
     wait_exponential,
 )
 
-from config import TEMPERATURE
+from src.config import TEMPERATURE
 
 
 class GoogleStudioClient:
