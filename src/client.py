@@ -1,10 +1,10 @@
 from aiolimiter import AsyncLimiter
 
-from client_anthropic import AnthropicClient
-from client_google_studio import GoogleStudioClient
-from client_google_vertex import GoogleVertexClient
-from client_openai import OpenAIClient
-from client_openrouter import OpenRouterClient
+from clients.anthropic import AnthropicClient
+from clients.google_studio import GoogleStudioClient
+from clients.google_vertex import GoogleVertexClient
+from clients.openai import OpenAIClient
+from clients.openrouter import OpenRouterClient
 
 cache = {}
 

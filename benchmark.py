@@ -3,9 +3,9 @@ import json
 
 from tqdm import tqdm
 
-from client import get_client
-from config import ADDITIONAL_RS, ITERATIONS, MODELS
-from utils import evaluate_response, generate_prompt, generate_word
+from src.client import get_client
+from src.config import ADDITIONAL_RS, ITERATIONS, MODELS
+from src.utils import evaluate_response, generate_prompt, generate_word
 
 
 async def run_single_iteration(model_info: dict, additional_rs: int, word: str, pbar) -> tuple:
