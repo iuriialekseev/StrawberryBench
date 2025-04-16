@@ -66,6 +66,7 @@ MODELS = [
     # { "name": "openai/o1-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini", "client": "openai", "type": "reasoning" },
     # { "name": "openai/o3-mini-high", "client": "openai", "type": "reasoning" },
+    # { "name": "openai/o4-mini", "client": "openai", "type": "reasoning" },
     # { "name": "qwen/qwq-32b", "client": "openrouter", "type": "reasoning", "settings": {"rate_limit": 30} },
     # { "name": "x-ai/grok-3-mini-beta", "client": "openrouter", "type": "reasoning" },
 ]
