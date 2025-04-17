@@ -32,6 +32,7 @@ class OpenAIClient:
             messages=[{"role": "user", "content": prompt}],
             model=self.model,
             temperature=TEMPERATURE,
+            reasoning_effort="high"
         )
 
         # print(response)
