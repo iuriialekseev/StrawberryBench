@@ -12,7 +12,7 @@ from src.config import TEMPERATURE
 
 
 class OpenAIClient:
-    def __init__(self, model, rate_limiter):
+    def __init__(self, model: str, rate_limiter):
         if model.startswith("openai/"):
             model = model.replace("openai/", "")
 
@@ -28,12 +28,14 @@ class OpenAIClient:
     async def query_model(self, prompt: str) -> str:
         await self.rate_limiter.acquire()
 
-        response = await self.client.chat.completions.create(
-            messages=[{"role": "user", "content": prompt}],
+        response = await self.client.responses.create(
             model=self.model,
+            input=prompt,
             temperature=TEMPERATURE,
-            reasoning_effort="high"
+            reasoning={"effort": "high"},
+            service_tier="flex",
         )
 
-        # print(response)
-        return response.choices[0].message.content or ""
+        print(f"Response: {response.output_text}")
+
+        return response.output_text or ""

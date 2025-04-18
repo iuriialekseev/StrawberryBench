@@ -2,7 +2,6 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import json
 
 
 def plot_heatmap(pivot_df, title, save_path=None):
@@ -22,7 +21,7 @@ def plot_heatmap(pivot_df, title, save_path=None):
 
     ax.set_xlabel("Additional r's", fontsize=12)
     ax.set_ylabel("Model", fontsize=12)
-    ax.set_title(title, pad=20, fontsize=14, loc='left', fontweight='bold')
+    ax.set_title(title, pad=20, fontsize=14, loc="left", fontweight="bold")
 
     plt.tight_layout()
     if save_path:
@@ -54,12 +53,9 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
     else:
         plot_df["display_model"] = plot_df["model"]
 
-    plot_df["provider"] = plot_df["provider"].fillna('unknown')
+    plot_df["provider"] = plot_df["provider"].fillna("unknown")
 
-    grouped = plot_df.groupby("display_model").agg(
-        average_accuracy=("accuracy", "mean"),
-        provider=("provider", "first")
-    ).reset_index()
+    grouped = plot_df.groupby("display_model").agg(average_accuracy=("accuracy", "mean"), provider=("provider", "first")).reset_index()
 
     top_models = grouped.sort_values("average_accuracy", ascending=False)
 
@@ -70,7 +66,7 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
 
     fig, ax = plt.subplots(figsize=(16, 6))
 
-    bars = ax.bar(
+    ax.bar(
         top_models["display_model"],
         top_models["average_accuracy"],
         color=colors,
@@ -86,33 +82,28 @@ def plot_bar_chart(df, title, save_path=None, limit=None, add_cot_label=False):
     ]
 
     ax.legend(
-        handles=legend_handles,
-        loc='upper center',
-        bbox_to_anchor=(0.5, 1.12),
-        ncol=len(unique_providers),
-        fontsize=14,
-        frameon=False
+        handles=legend_handles, loc="upper center", bbox_to_anchor=(0.5, 1.12), ncol=len(unique_providers), fontsize=14, frameon=False
     )
 
     ax.set_ylim(0, 100)
 
-    ax.set_ylabel("Average accuracy (%)", fontsize=20, color='gray')
+    ax.set_ylabel("Average accuracy (%)", fontsize=20, color="gray")
     ax.set_xlabel(None)
 
-    plt.xticks(rotation=45, ha='right', fontsize=16)
+    plt.xticks(rotation=45, ha="right", fontsize=16)
     plt.yticks(fontsize=14)
 
-    ax.set_title(title, fontsize=28, loc='left', fontweight='bold', pad=50)
+    ax.set_title(title, fontsize=28, loc="left", fontweight="bold", pad=50)
 
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
     plt.show()
 
 
 def create_pivot(sub_df):
     pivot = sub_df.pivot(index="model", columns="additional_rs", values="accuracy")
     if not pivot.empty:
-       pivot = pivot.loc[pivot.mean(axis=1).sort_values(ascending=False).index]
+        pivot = pivot.loc[pivot.mean(axis=1).sort_values(ascending=False).index]
     return pivot
 
 

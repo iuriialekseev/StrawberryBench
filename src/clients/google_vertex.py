@@ -11,6 +11,7 @@ from tenacity import (
 
 from src.config import TEMPERATURE
 
+
 class GoogleVertexClient:
     MAX_THINKING_BUDGET = 24_000
 
@@ -30,10 +31,9 @@ class GoogleVertexClient:
         self.generation_config = GenerateContentConfig(
             temperature=TEMPERATURE,
             thinking_config=ThinkingConfig(
-                thinking_budget=self.MAX_THINKING_BUDGET
+                thinking_budget=self.MAX_THINKING_BUDGET,
             ),
         )
-
 
     @retry(
         stop=stop_after_attempt(5),
