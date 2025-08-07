@@ -12,7 +12,7 @@ cache = {}
 def get_client(model: dict):
     name = model["name"]
     client = model["client"]
-    rate_limit = model.get("settings", {}).get("rate_limit", 100)
+    rate_limit = model.get("settings", {}).get("rate_limit", 200)
     key = (name, client)
 
     if key in cache:
